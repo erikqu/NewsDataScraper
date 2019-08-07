@@ -35,7 +35,10 @@ class Scraper:
         return list_of_articles
 
     def get_body(self, url: str) -> str:
-        article = Article(url)
-        article.download()
-        article.parse()
-        return article.text
+        try:
+            article = Article(url)
+            article.download()
+            article.parse()
+            return article.text
+        except:
+            return 'Could not retrieve body at this time'

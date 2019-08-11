@@ -1,6 +1,6 @@
 import sys
 import os
-
+#Needs access to the package newspaper
 TEST_DIR = os.path.abspath(os.path.dirname(__file__))
 PARENT_DIR = os.path.join(TEST_DIR, '..')
 sys.path.insert(0, PARENT_DIR)

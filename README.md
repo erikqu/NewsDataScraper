@@ -17,6 +17,6 @@ first_article = articles.articles[0]
 print(first_article.content)
 #We also provide helper functions to serialize the data
 articles.toCsv('test.csv')
-articles.pickle('test.pickle')
-articles.json()
+articles.toPickle('test.pickle')
+articles.toJson()
 ```

@@ -15,6 +15,11 @@ class ArticleFromJson:
         self.datePublished = datePublished
         self.content = content
 
+    def __eq__(self, other):
+        if not isinstance(other, type(self)):
+            return NotImplemented
+        return self.__dict__ == other.__dict__
+
 
 class Articles:
     '''Model to contain a list of article data. Also has functions to serialize that data'''
@@ -36,8 +41,16 @@ class Articles:
         article_list = [vars(article) for article in self.articles]
         return json.dumps({'articles': article_list})
 
-    def pickle(self, pickle_name: str):
+    def toPickle(self, pickle_name: str):
         '''Serialization of article objects to byte stream'''
         with open(pickle_name, 'wb') as f:
             pickle.dump(self.articles, f)
             f.close()
+
+    def __eq__(self, other):
+        if not isinstance(other, type(self)):
+            return NotImplemented
+        for index, article in enumerate(self.articles):
+            if(article != other.articles[index]):
+                return False
+        return True

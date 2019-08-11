@@ -11,7 +11,6 @@ class Scraper:
         '''Method to fetch all articles of a specific query. Note to get the full body use the get_body method'''
         url = "https://newsapi.org/v2/everything?q={0}&pageSize={1}&apiKey={2}".format(
             query, pageSize, self.apiKey)
-        print(url)
         results = requests.get(url).json()
         all_articles = results["articles"]
 
@@ -19,7 +18,7 @@ class Scraper:
 
     def fetch_articles_from_specific_dates(self, query: str, dateFrom: str, dateTo: str, pageSize: int=100) -> Articles:
         '''Method to fetch articles from specific dates: dates should be in format in 2019-08-04 or 2019-08-04T01:57:12'''
-        url = "https://newsapi.org/v2/everything?q={0}&pageSize={1}&apiKey={3}&from={4}&from{5}".format(
+        url = "https://newsapi.org/v2/everything?q={0}&pageSize={1}&apiKey={2}&from={3}&from{4}".format(
             query, pageSize, self.apiKey, dateFrom, dateTo)
         results = requests.get(url).json()
         articles = results["articles"]

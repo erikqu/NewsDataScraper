@@ -20,3 +20,21 @@ articles.toCsv('test.csv')
 articles.toPickle('test.pickle')
 articles.toJson()
 ```
+
+### Working on the Project
+Run format
+```bash
+black .
+```
+Run Linter
+```bash
+pylama -o setup.cfg .
+```
+Run tests
+```bash
+pytest
+```
+Run tests + code coverage
+```bash
+sh ./scripts/generate_coverage.sh
+```

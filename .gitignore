@@ -38,6 +38,9 @@ htmlcov
 # Translations
 *.mo
 
+#vscode
+.vscode
+
 # Mr Developer
 .mr.developer.cfg
 .project

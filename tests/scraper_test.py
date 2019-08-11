@@ -11,8 +11,6 @@ from newsdatascraper import Scraper
 from newsdatascraper.models import Articles, ArticleFromJson
 from httmock import urlmatch, HTTMock, response, all_requests
 from unittest.mock import MagicMock
-import unittest
-import tests
 
 news_api_mock_data = {
     'status': 'ok',
@@ -39,7 +37,7 @@ article_object = ArticleFromJson(
 mock_articles_object = Articles([article_object])
 
 
-class ScraperTestMethods(unittest.TestCase):
+class TestScraperMethods:
 
     @all_requests
     def news_api_mock(self, url, request):

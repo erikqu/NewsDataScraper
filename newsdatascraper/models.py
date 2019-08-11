@@ -4,7 +4,7 @@ import csv
 import pickle
 
 
-class ArticleFromJson:
+class ArticleFromJson:  # pragma: no cover
     '''Data model for one article'''
 
     def __init__(self, author: str, title: str, description: str, url: str, datePublished, content: str):
@@ -21,7 +21,7 @@ class ArticleFromJson:
         return self.__dict__ == other.__dict__
 
 
-class Articles:
+class Articles: # pragma: no cover
     '''Model to contain a list of article data. Also has functions to serialize that data'''
 
     def __init__(self, articles: list):

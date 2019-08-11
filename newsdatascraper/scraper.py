@@ -38,6 +38,6 @@ class Scraper:
             article = Article(url)
             article.download()
             article.parse()
-            return article.text
+            return article.text # pragma: no cover
         except:
             return 'Could not retrieve body at this time'

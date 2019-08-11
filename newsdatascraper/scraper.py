@@ -13,7 +13,6 @@ class Scraper:
             query, pageSize, self.apiKey)
         results = requests.get(url).json()
         all_articles = results["articles"]
-
         return Articles(self.create_article_objects(all_articles))
 
     def fetch_articles_from_specific_dates(self, query: str, dateFrom: str, dateTo: str, pageSize: int=100) -> Articles:

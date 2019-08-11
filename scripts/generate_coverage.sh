@@ -2,7 +2,7 @@
 #!/bin/bash -e
 
 # generate_coverage.sh
-# It generates an lcov.info and coverage report in ./coverage.
+# It generates coverage report in htmlcov.
 
 DIR=${1-'.'}
 

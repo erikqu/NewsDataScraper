@@ -49,15 +49,19 @@ class TestScraperMethods:
         scraper = Scraper('mock-url')
         scraper.get_body = MagicMock(return_value='content_went_to_body')
         with HTTMock(self.news_api_mock):
-            articles_object = scraper.fetch_all_articles(query='mock')
-        
-        assert mock_articles_object.articles[0].content != news_api_mock_data['articles'][0]['content']
+            articles_object = scraper.fetch_all_articles(query='mock', pageSize=20)
+
+        assert articles_object.articles[0].content != news_api_mock_data['articles'][0]['content']
         assert mock_articles_object == articles_object
 
-    def test_fetch_all_articles(self):
+    def test_fetch_articles_from_specific_dates(self):
         scraper = Scraper('mock-url')
         scraper.get_body = MagicMock(return_value='content_went_to_body')
         with HTTMock(self.news_api_mock):
             articles_object = scraper.fetch_articles_from_specific_dates(query='mock', dateFrom='mock-date', dateTo='mock-date')
-        assert mock_articles_object.articles[0].content != news_api_mock_data['articles'][0]['content']
+        assert articles_object.articles[0].content != news_api_mock_data['articles'][0]['content']
         assert mock_articles_object == articles_object
+    
+    def test_get_body(self):
+        scraper = Scraper('mock-url')
+        

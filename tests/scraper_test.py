@@ -1,10 +1,3 @@
-import sys
-import os
-#Needs access to the package newspaper
-TEST_DIR = os.path.abspath(os.path.dirname(__file__))
-PARENT_DIR = os.path.join(TEST_DIR, '..')
-sys.path.insert(0, PARENT_DIR)
-
 import requests
 import json
 from newsdatascraper import Scraper
@@ -62,6 +55,9 @@ class TestScraperMethods:
         assert articles_object.articles[0].content != news_api_mock_data['articles'][0]['content']
         assert mock_articles_object == articles_object
     
-    def test_get_body(self):
+    def test_get_body_fails_and_returns(self):
         scraper = Scraper('mock-url')
+        content = scraper.get_body('www.mock-website.com')
+        assert content == 'Could not retrieve body at this time'
+
         

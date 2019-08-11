@@ -15,4 +15,8 @@ articles = new_scraper.fetch_all_articles(query='two-sigma')
 #To access individual articles and their properties
 first_article = articles.articles[0]
 print(first_article.content)
+#We also provide helper functions to serialize the data
+articles.toCsv('test.csv')
+articles.pickle('test.pickle')
+articles.json()
 ```

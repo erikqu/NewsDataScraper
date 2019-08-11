@@ -32,8 +32,14 @@ pip-log.txt
 .tox
 nosetests.xml
 
+#coverage_file
+htmlcov
+
 # Translations
 *.mo
+
+#vscode
+.vscode
 
 # Mr Developer
 .mr.developer.cfg

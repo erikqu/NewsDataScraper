@@ -1,6 +1,8 @@
 import sys
 import os
 import codecs
+from setuptools import setup
+from os import path
 
 
 try:
@@ -12,11 +14,16 @@ with open("requirements.txt") as f:
     required = f.read().splitlines()
     f.close()
 
+this_directory = path.abspath(path.dirname(__file__))
+with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
+    long_description = f.read()
+
 
 setup(
     name="newsdatascraper",
     version="0.0.1",
     description="Easily query articles",
+    long_description=long_description,
     author="Erick Torres and Erik Quintanilla",
     author_email="ericktorresdeveloper@gmail.com",
     url="https://github.com/erikqu/NewsDataScraper",

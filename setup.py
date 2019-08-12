@@ -24,6 +24,7 @@ setup(
     version="0.0.1",
     description="Easily query articles",
     long_description=long_description,
+    long_description_content_type='text/markdown',
     author="Erick Torres and Erik Quintanilla",
     author_email="ericktorresdeveloper@gmail.com",
     url="https://github.com/erikqu/NewsDataScraper",

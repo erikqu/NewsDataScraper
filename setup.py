@@ -14,17 +14,16 @@ with open("requirements.txt") as f:
     required = f.read().splitlines()
     f.close()
 
-this_directory = path.abspath(path.dirname(__file__))
-with open(path.join(this_directory, "README.md"), encoding="utf-8") as f:
+with open("README.md", encoding="utf-8") as f:
     long_description = f.read()
 
 
 setup(
     name="newsdatascraper",
-    version="0.0.1",
+    version="0.0.2",
     description="Easily query articles",
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     author="Erick Torres and Erik Quintanilla",
     author_email="ericktorresdeveloper@gmail.com",
     url="https://github.com/erikqu/NewsDataScraper",

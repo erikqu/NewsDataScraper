@@ -22,6 +22,7 @@ news_api_mock_data = {
 
 article_object = ArticleFromJson(
     "Joe",
+    "Darkreading.com",
     "Mock",
     "Mock",
     "www.mock.com",

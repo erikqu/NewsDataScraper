@@ -9,6 +9,7 @@ class ArticleFromJson:  # pragma: no cover
     def __init__(
         self,
         author: str,
+        publisher: str,
         title: str,
         description: str,
         url: str,
@@ -16,6 +17,7 @@ class ArticleFromJson:  # pragma: no cover
         content: str,
     ):
         self.author = author
+        self.publisher = publisher
         self.title = title
         self.description = description
         self.url = url
@@ -35,7 +37,7 @@ class Articles:  # pragma: no cover
     def __init__(self, articles: list):
         self.articles = articles
 
-    def toCsv(self, csv_name: str):
+    def to_csv(self, csv_name: str):
         """Create a .csv file from the articles data to better visualize"""
         with open(csv_name, "w") as f:
             writer = csv.DictWriter(f, vars(self.articles[0]).keys())
@@ -44,12 +46,12 @@ class Articles:  # pragma: no cover
                 writer.writerow(vars(article))
         f.close()
 
-    def toJson(self):
+    def to_json(self):
         """Serializes the article objects to json"""
         article_list = [vars(article) for article in self.articles]
         return json.dumps({"articles": article_list})
 
-    def toPickle(self, pickle_name: str):
+    def to_pickle(self, pickle_name: str):
         """Serialization of article objects to byte stream"""
         with open(pickle_name, "wb") as f:
             pickle.dump(self.articles, f)

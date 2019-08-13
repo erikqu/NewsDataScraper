@@ -40,6 +40,7 @@ class Scraper:
             list_of_articles.append(
                 ArticleFromJson(
                     article["author"],
+                    article["source"]["name"],
                     article["title"],
                     article["description"],
                     article["url"],

@@ -1,10 +1,18 @@
 # NewsDataScrapper
 Python package that helps you easily get news data
 
+[![License: MIT](https://img.shields.io/github/license/erikqu/NewsDataScraper)](https://opensource.org/licenses/MIT)
+[![pypi: newsdatascraper](https://img.shields.io/pypi/pyversions/newsdatascraper)](https://pypi.org/project/newsdatascraper/)
+
 ## Requirements
 - Python 3.5+
 - [Newspaper3k](https://newspaper.readthedocs.io/en/latest/)
 - Api Key from [NewsApi](https://newsapi.org)
+
+## Installation
+```bash
+pip3 install newsdatascraper
+```
 
 ## Usage
 ```python
@@ -37,4 +45,8 @@ pytest
 Run tests + code coverage
 ```bash
 sh ./scripts/generate_coverage.sh
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> 9fe9c046dec45d57346ece60dd53a3d8d0794a9e

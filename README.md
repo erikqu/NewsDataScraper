@@ -45,8 +45,4 @@ pytest
 Run tests + code coverage
 ```bash
 sh ./scripts/generate_coverage.sh
-<<<<<<< HEAD
 ```
-=======
-```
->>>>>>> 9fe9c046dec45d57346ece60dd53a3d8d0794a9e

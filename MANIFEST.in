@@ -1,0 +1,4 @@
+include requirements.txt README.md LICENSE
+recursive-include newsdatascraper *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]

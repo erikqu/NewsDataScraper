@@ -10,16 +10,13 @@ try:
 except ImportError:
     from distutils.core import setup
 
-with open("requirements.txt") as f:
-    required = f.read().splitlines()
 
 with open("README.md", encoding="utf-8") as f:
     long_description = f.read()
 
-
 setup(
     name="newsdatascraper",
-    version="0.0.4",
+    version="0.0.7",
     description="Easily query articles",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -28,13 +25,18 @@ setup(
     url="https://github.com/erikqu/NewsDataScraper",
     packages=["newsdatascraper"],
     include_package_data=True,
-    install_requires=required,
+    install_requires=[
+        "requests==2.20.0",
+        "httmock==1.3.0",
+        "newspaper3k==0.2.8",
+        "tests==0.007",
+    ],
     license="MIT",
     zip_safe=False,
     classifiers=[
         "Programming Language :: Python :: 3.5",
         "Natural Language :: English",
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 2 - Pre-Alpha",
         "License :: OSI Approved :: MIT License",
         "Intended Audience :: Developers",
     ],

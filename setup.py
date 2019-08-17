@@ -12,7 +12,6 @@ except ImportError:
 
 with open("requirements.txt") as f:
     required = f.read().splitlines()
-    f.close()
 
 with open("README.md", encoding="utf-8") as f:
     long_description = f.read()
@@ -20,7 +19,7 @@ with open("README.md", encoding="utf-8") as f:
 
 setup(
     name="newsdatascraper",
-    version="0.0.2",
+    version="0.0.4",
     description="Easily query articles",
     long_description=long_description,
     long_description_content_type="text/markdown",

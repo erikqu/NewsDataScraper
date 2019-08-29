@@ -1,4 +1,5 @@
 # NewsDataScrapper
+
 Python package that helps you easily retrieve complete web articles
 
 [![License: MIT](https://img.shields.io/github/license/erikqu/NewsDataScraper)](https://opensource.org/licenses/MIT)
@@ -17,9 +18,10 @@ pip3 install newsdatascraper
 ## Usage
 ```python
 from newsdatascraper import Scraper
-#To first get the articles
+#To first get a single article on a topic
 new_scraper = Scraper('mock-api-key')
-articles = new_scraper.fetch_all_articles(query='two-sigma')
+articles = new_scraper.fetch_all_articles
+(query='two-sigma', pageSize = 1)
 #To access individual articles and their properties
 first_article = articles.articles[0]
 print(first_article.content)

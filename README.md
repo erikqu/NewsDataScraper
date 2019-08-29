@@ -20,8 +20,8 @@ pip3 install newsdatascraper
 from newsdatascraper import Scraper
 #To first get a single article on a topic
 new_scraper = Scraper('mock-api-key')
-articles = new_scraper.fetch_all_articles
-(query='two-sigma', pageSize = 1)
+articles = new_scraper.fetch_all_articles(query='two-sigma', pageSize = 10)
+
 #To access individual articles and their properties
 first_article = articles.articles[0]
 print(first_article.content)

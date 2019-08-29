@@ -1,5 +1,5 @@
 # NewsDataScrapper
-Python package that helps you easily get news data
+Python package that helps you easily retrieve complete web articles
 
 [![License: MIT](https://img.shields.io/github/license/erikqu/NewsDataScraper)](https://opensource.org/licenses/MIT)
 [![pypi: newsdatascraper](https://img.shields.io/pypi/pyversions/newsdatascraper)](https://pypi.org/project/newsdatascraper/)

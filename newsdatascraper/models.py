@@ -37,6 +37,14 @@ class Articles:  # pragma: no cover
     def __init__(self, articles: list):
         self.articles = articles
 
+    def __add__(self, other: Articles):
+        articles = self.articles + other.articles
+        return Articles(articles)
+
+    def __radd__(self, other: Articles):
+        articles = self.articles + other.articles
+        return Articles(articles)
+
     def to_csv(self, csv_name: str):
         """Create a .csv file from the articles data to better visualize"""
         with open(csv_name, "w") as f:

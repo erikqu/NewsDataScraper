@@ -24,7 +24,7 @@ class Scraper:
     ) -> Articles:
         """Method to fetch articles from specific dates: dates should be in
         format in 2019-08-04 or 2019-08-04T01:57:12"""
-        params = "q={0}&pageSize={1}&apiKey={2}&from={3}&from{4}".format(
+        params = "q={0}&pageSize={1}&apiKey={2}&from={3}&to={4}".format(
             query, pageSize, self.apiKey, dateFrom, dateTo
         )
         url = self.baseUrl + params

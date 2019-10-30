@@ -37,11 +37,11 @@ class Articles:  # pragma: no cover
     def __init__(self, articles: list):
         self.articles = articles
 
-    def __add__(self, other: Articles):
+    def __add__(self, other: 'Articles'):
         articles = self.articles + other.articles
         return Articles(articles)
 
-    def __radd__(self, other: Articles):
+    def __radd__(self, other: 'Articles'):
         articles = self.articles + other.articles
         return Articles(articles)
 

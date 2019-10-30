@@ -16,7 +16,7 @@ with open("README.md", encoding="utf-8") as f:
 
 setup(
     name="newsdatascraper",
-    version="0.0.9",
+    version="0.0.9.1",
     description="Easily query articles",
     long_description=long_description,
     long_description_content_type="text/markdown",

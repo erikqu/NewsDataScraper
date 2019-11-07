@@ -1,6 +1,6 @@
 # NewsDataScrapper
 
-Python package that helps you easily retrieve complete web articles
+Python package that helps you easily retrieve complete web articles, both new and old!
 
 [![License: MIT](https://img.shields.io/github/license/erikqu/NewsDataScraper)](https://opensource.org/licenses/MIT)
 [![pypi: newsdatascraper](https://img.shields.io/pypi/pyversions/newsdatascraper)](https://pypi.org/project/newsdatascraper/)
@@ -8,7 +8,7 @@ Python package that helps you easily retrieve complete web articles
 ## Requirements
 - Python 3.5+
 - [Newspaper3k](https://newspaper.readthedocs.io/en/latest/)
-- Api Key from [NewsApi](https://newsapi.org)
+- API Key from [Newspaper3k](https://newsapi.org) or API Key from GNews [GNews](https://gnews.io)
 
 ## Installation
 ```bash
@@ -20,7 +20,12 @@ pip3 install newsdatascraper
 from newsdatascraper import Scraper
 #To first get a single article on a topic
 new_scraper = Scraper('mock-api-key')
-articles = new_scraper.fetch_all_articles(query='two-sigma', pageSize = 10)
+articles = new_scraper.fetch_all_articles(query='two sigma', pageSize = 10)
+
+#We also support older articles (search news older than four months, those less than four months can use mode 0)! Switch modes to the GNews API and reinitialize the scraper with mode = 1!
+
+new_scraper = Scraper('mock-api-key', mode = 1)
+articles = new_scraper.fetch_all_articles(query='two sigma', pageSize = 10, dateFrom = "2019-08-04", dateTo = "2019-08-10")
 
 #To access individual articles and their properties
 first_article = articles.articles[0]

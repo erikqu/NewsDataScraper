@@ -22,9 +22,11 @@ from newsdatascraper import Scraper
 new_scraper = Scraper('mock-api-key')
 articles = new_scraper.fetch_all_articles(query='two sigma', pageSize = 10)
 
-#We also support older articles (search news older than four months, those 
+"""
+We also support older articles (search news older than four months, those 
 less than four months can use mode 0)! Switch modes to the GNews API 
 and reinitialize the scraper with mode = 1!
+"""
 
 new_scraper = Scraper('mock-api-key', mode = 1)
 articles = new_scraper.fetch_all_articles(query='two sigma', pageSize = 10, 

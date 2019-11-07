@@ -8,13 +8,13 @@ class ArticleFromJson:  # pragma: no cover
 
     def __init__(
         self,
-        author: str,
         publisher: str,
         title: str,
         description: str,
         url: str,
         datePublished,
         content: str,
+        author: str = None,
     ):
         self.author = author
         self.publisher = publisher

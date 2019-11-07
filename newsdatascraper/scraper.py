@@ -29,7 +29,10 @@ class Scraper:
         )
         url = self.baseUrl + params
         results = requests.get(url).json()
-        articles = results["articles"]
+        try:
+            articles = results["articles"]
+        except KeyError:
+            return Articles([])
         return Articles(self.create_article_objects(articles))
 
     def create_article_objects(self, articles) -> list:

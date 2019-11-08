@@ -3,30 +3,31 @@ import requests
 from models import ArticleFromJson, Articles
 
 
+
 class Scraper:
-    def __init__(self, api_key: str, mode = 0):
+    def __init__(self, api_key: str, mode: str = 'NEWSPAPER'):
         """
         Scraper modes: 
-            mode 0: Newspaper3k 
-            mode 1: GNews API
+            Newspaper3k => 'NEWSPAPER'
+            GNewsAPI => 'GNEWS'
         """
-        self.apiKey = api_key
+        self.api_key = api_key
         self.mode = mode
-        if mode == 0:
+        if mode == 'NEWSPAPER':
             self.baseUrl = "https://newsapi.org/v2/everything?"
-        elif mode == 1:
+        elif mode == 'GNEWS':
             self.baseUrl = "https://gnews.io/api/v3/search?"
 
-    def fetch_all_articles(self, query: str, pageSize: int = 50) -> Articles:
+    def fetch_all_articles(self, query: str, page_size: int = 10) -> Articles:
         """Method to fetch all articles of a specific query.
         Note to get the full body use the get_body method"""
-        if self.mode == 0:
+        if self.mode == 'NEWSPAPER':
             url_parameters = "q={0}&pageSize={1}&apiKey={2}".format(
-                query, pageSize, self.apiKey
+                query, page_size, self.api_key
             )
-        elif self.mode == 1:
+        elif self.mode == 'GNEWS':
             url_parameters = "q={0}&max={1}&token={2}".format(
-                query, pageSize, self.apiKey
+                query, page_size, self.api_key
             )
         url = self.baseUrl + url_parameters
         results = requests.get(url).json()
@@ -34,19 +35,18 @@ class Scraper:
         return Articles(self.create_article_objects(all_articles))
 
     def fetch_articles_from_specific_dates(
-        self, query: str, dateFrom: str, dateTo: str, pageSize: int = 100
+        self, query: str, date_from: str, date_to: str, page_size: int = 100
     ) -> Articles:
         """Method to fetch articles from specific dates: dates should be in
-        format in (NEWSPAPER3K, mode 0 ) 2019-08-04 or 2019-08-04T01:57:12 and 
-        must be of format 2019-08-04 for GNews (mode 1) """
+        format in 2019-08-04"""
 
-        if self.mode ==0:
+        if self.mode == 'NEWSPAPER':
             params = "q={0}&pageSize={1}&apiKey={2}&from={3}&to={4}".format(
-                query, pageSize, self.apiKey, dateFrom, dateTo
+                query, page_size, self.api_key, date_from, date_to
             )
-        elif self.mode ==1: 
+        elif self.mode == 'GNEWS': 
             params = "q={0}&max={1}&token={2}&mindate={3}&maxdate={4}".format(
-                query, pageSize, self.apiKey, dateFrom, dateTo
+                query, page_size, self.api_key, date_from, date_to
             )
         url = self.baseUrl + params
         results = requests.get(url).json()
@@ -61,19 +61,19 @@ class Scraper:
         list_of_articles = []
         for article in articles:
             body = self.get_body(article["url"])
-            if self.mode == 0:
+            if self.mode == 'NEWSPAPER':
                 list_of_articles.append(
                     ArticleFromJson(
-                        article["author"],
                         article["source"]["name"],
                         article["title"],
                         article["description"],
                         article["url"],
                         article["publishedAt"],
                         body,
+                        article["author"],
                     )
                 )
-            elif self.mode == 1:
+            elif self.mode == 'GNEWS':
                 list_of_articles.append(
                     ArticleFromJson(
                         article["source"]["name"],

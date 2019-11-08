@@ -12,17 +12,17 @@ class ArticleFromJson:  # pragma: no cover
         title: str,
         description: str,
         url: str,
-        datePublished,
+        date_published,
         content: str,
-        author: str = None,
+        author: str = 'Not Found',
     ):
-        self.author = author
         self.publisher = publisher
         self.title = title
         self.description = description
         self.url = url
-        self.datePublished = datePublished
+        self.date_published = date_published
         self.content = content
+        self.author = author
 
     def __eq__(self, other):
         if not isinstance(other, type(self)):

@@ -1,6 +1,6 @@
 # NewsDataScrapper
 
-Python package that helps you easily retrieve complete web articles, both new and old!
+Python package that helps you easily retrieve complete web articles.
 
 [![License: MIT](https://img.shields.io/github/license/erikqu/NewsDataScraper)](https://opensource.org/licenses/MIT)
 [![pypi: newsdatascraper](https://img.shields.io/pypi/pyversions/newsdatascraper)](https://pypi.org/project/newsdatascraper/)
@@ -8,7 +8,7 @@ Python package that helps you easily retrieve complete web articles, both new an
 ## Requirements
 - Python 3.5+
 - [Newspaper3k](https://newspaper.readthedocs.io/en/latest/)
-- API Key from [Newspaper3k](https://newsapi.org) or API Key from GNews [GNews](https://gnews.io)
+- API Key from [NewsApi](https://newsapi.org) or API Key from [GNews](https://gnews.io)
 
 ## Installation
 ```bash
@@ -23,12 +23,11 @@ new_scraper = Scraper('mock-api-key')
 articles = new_scraper.fetch_all_articles(query='two sigma', pageSize = 10)
 
 """
-We also support older articles (search news older than four months, those 
-less than four months can use mode 0)! Switch modes to the GNews API 
-and reinitialize the scraper with mode = 1!
+We support two APIs: NewsApi and GNewsApi
+To control the API being used change the argument of mode to either 'NEWSPAPER' or 'GNEWS'
 """
 
-new_scraper = Scraper('mock-api-key', mode = 1)
+new_scraper = Scraper('mock-api-key', mode = 'GNEWS')
 articles = new_scraper.fetch_all_articles(query='two sigma', pageSize = 10, 
               dateFrom = "2019-08-04", dateTo = "2019-08-10")
 
@@ -40,6 +39,10 @@ articles.toCsv('test.csv')
 articles.toPickle('test.pickle')
 articles.toJson()
 ```
+
+## Important Note
+
+Please look at rate limits in the APIs to determine your prefered usage
 
 ### Working on the Project
 Run format
